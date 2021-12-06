@@ -1,0 +1,11 @@
+.todos-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  order: -1;
+}
+
+.wrapper {
+  width: 50%;
+  display: flex;
+}

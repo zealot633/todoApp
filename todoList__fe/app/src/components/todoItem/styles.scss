@@ -1,0 +1,104 @@
+$mainGrey: #666666;
+$mainBlue: #30B6DD;
+$fontSansPro: 'Source Sans Pro', sans-serif;
+
+
+.todo-item {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 10px;
+  background: #fff;
+  border-bottom: 1px solid #e2dddd;
+  border-radius: 6px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-bottom: 10px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    order: -1;
+  }
+
+  &__controls {
+    display: flex;
+    order: -1;
+    align-self: end;
+    width: 105px;
+    height: 35px;
+  }
+
+  &-textarea {
+    outline: none;
+    background: none;
+    padding: 10px;
+    border: 1px solid lighten($mainGrey, 50%);
+    border-radius: 6px;
+    resize: none;
+    margin-bottom: 10px;
+    font: 14px $fontSansPro;
+    line-height: 1.5;
+    color: #474A59;
+  }
+
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    font: 14px $fontSansPro;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: lighten($mainGrey, 10%);
+    line-height: 2.5;
+    user-select: none;
+
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  font-family: $fontSansPro;
+
+  &_controls {
+    background: none;
+    cursor: pointer;
+    border: none;
+    color: $mainGrey;
+
+    svg {
+      stroke: $mainGrey;
+      transition: all 0.1s ease;
+    }
+
+    &:hover {
+      svg {
+        transform: scale(1.2);
+        stroke: $mainBlue;
+        filter: drop-shadow(0 0 3px lighten(black, 90%));
+      }
+    }
+
+    &_ok {
+      border: 1px solid lighten($mainGrey, 30%);
+      border-radius: 5px;
+      height: 35px;
+      width: 35px;
+      transition: all 0.1s ease;
+
+      &:hover {
+        border: 1px solid lighten($mainBlue, 5%);
+        background: lighten($mainBlue, 5%);
+        color: white;
+      }
+    }
+  }
+}
+
+.edited {
+  border: 1px solid lighten($mainBlue, 35%);
+  background: lighten($mainBlue, 45%);
+}
