@@ -1,7 +1,7 @@
-import { v4 as uuidv4 } from "uuid";
-import { fakeDB } from "../fakeDB.js";
+const { v4: uuidv4 } = require("uuid");
+const fakeDB = require("../fakeDB");
 
-export class UsersService {
+class UsersService {
   users = fakeDB;
 
   addUser = (body) => this.users.push({ id: uuidv4(), ...body });
@@ -21,3 +21,5 @@ export class UsersService {
 
   getUsers = () => this.users;
 }
+
+module.exports = UsersService;

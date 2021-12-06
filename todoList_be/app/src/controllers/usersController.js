@@ -1,8 +1,8 @@
-import { UsersService } from "../services/usersService.js";
-import { sendResponse } from "../utils/sendResponse.js";
-import { STATUSES } from "../constants/responseStatuses.js";
+const UsersService = require("../services/usersService");
+const sendResponse = require("../utils/sendResponse");
+const STATUSES = require("../constants/responseStatuses");
 
-export class UsersController {
+class UsersController {
   #storage = new UsersService();
 
   async getUserByID(req, res) {
@@ -67,3 +67,5 @@ export class UsersController {
     }
   }
 }
+
+module.exports = UsersController;

@@ -1,7 +1,7 @@
-import { UsersController } from "../controllers/usersController.js";
-import { Router } from "@awaitjs/express";
+const UsersController = require("../controllers/usersController");
+const { Router } = require("@awaitjs/express");
 
-export const router = Router();
+const router = Router();
 const usersController = new UsersController();
 
 router.getAsync(
@@ -16,9 +16,4 @@ router.deleteAsync(
   usersController.deleteUser.bind(usersController)
 );
 
-
-
-
-
-
-
+module.exports = router;

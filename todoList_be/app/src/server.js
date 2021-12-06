@@ -1,12 +1,13 @@
-import express from "express";
-import { router } from "./routers/usersRouter.js";
-import cors from 'cors';
+const express = require("express");
+const cors = require("cors");
+const router = require("./routers/usersRouter");
 
-export function startServer(app) {
+function startServer(app) {
   const PORT = 8888;
   app.useAsync(cors());
   app.useAsync(express.json());
   app.useAsync(router);
-
   app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 }
+
+module.exports = startServer;

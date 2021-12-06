@@ -1,17 +1,15 @@
-import express from "express";
-import { addAsync } from "@awaitjs/express";
-import { startServer } from "./server.js";
+const startServer = require("./server.js");
+const express = require("express");
+const { addAsync } = require("@awaitjs/express");
 
 const app = addAsync(express());
 
-
 async function start() {
-try {
+  try {
     startServer(app);
-}
-catch (e) {
-console.log(e.message)
-}
+  } catch (e) {
+    console.log(e.message);
+  }
 }
 
-start().then(()=> console.log('wow'))
+start().then(() => console.log("wow"));
