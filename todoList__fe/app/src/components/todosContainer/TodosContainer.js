@@ -22,6 +22,7 @@ export function TodosContainer() {
   };
 
   const createTodo = (user) => {
+
     sendRequest(LOCAL_HOST, {
       method: "POST",
       headers: {

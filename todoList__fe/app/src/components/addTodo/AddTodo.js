@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { ReactComponent as Plus } from "../../svg/plus.svg";
 import TextareaAutosize from "react-textarea-autosize";
@@ -8,8 +8,13 @@ export function AddTodo(props) {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
+    reset,
   } = useForm();
+
+  useEffect(() => {
+    reset({ name: "", text: "" });
+  }, [isSubmitSuccessful, reset]);
 
   return (
     <div className="wrapper">
@@ -33,18 +38,16 @@ export function AddTodo(props) {
               rows={1}
               className={"addTodo-form__textarea"}
             />
-              {errors?.name?.type === "pattern" && (
-                  <span className="addTodo-form__error-message">
-                  The name must not contain special characters
+            {errors?.name?.type === "pattern" && (
+              <span className="addTodo-form__error-message">
+                The name must not contain special characters
               </span>
-              )}
-
+            )}
             {errors?.name?.type === "required" && (
               <span className="addTodo-form__error-message">
                 This field is required
               </span>
             )}
-
             {errors?.name?.type === "minLength" && (
               <span className="addTodo-form__error-message">
                 Name must be at least two letters
